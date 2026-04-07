@@ -7,8 +7,7 @@ type: Index
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-tags:
-  - API
+tags: []
 created: '2025-02-17'
 modified: '2026-03-16'
 url: >-
@@ -21,8 +20,7 @@ apis:
       An expressive API to interact with your workflows, automate processes, power
       integrations, and more!
     humanURL: ' https://developer.monday.com/api-reference/'
-    tags:
-      - API
+    tags: []
     properties:
       - type: Documentation
         url: ' https://developer.monday.com/api-reference/'
