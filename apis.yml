@@ -1,8 +1,8 @@
 aid: monday-com
-name: monday.com
+name: Monday.com
 description: >-
-  An expressive API to interact with your workflows, automate processes, power
-  integrations, and more! 
+  An expressive API to interact with your workflows, automate processes, power integrations,
+  and more!
 type: Index
 position: Consumer
 access: 3rd-Party
@@ -16,10 +16,10 @@ url: >-
 specificationVersion: '0.19'
 apis:
   - aid: monday-com:monday-com
-    name: monday.com
+    name: Monday.com
     description: >-
-      An expressive API to interact with your workflows, automate processes,
-      power integrations, and more! 
+      An expressive API to interact with your workflows, automate processes, power
+      integrations, and more!
     humanURL: ' https://developer.monday.com/api-reference/'
     tags:
       - API
