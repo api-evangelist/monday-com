@@ -7,23 +7,37 @@ type: Index
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-tags: []
+tags:
+  - Work Management
+  - CRM
+  - Automation
+  - GraphQL
 created: '2025-02-17'
-modified: '2026-03-16'
+modified: '2026-04-28'
 url: >-
   https://raw.githubusercontent.com/api-evangelist/monday-com/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
   - aid: monday-com:monday-com
-    name: Monday.com
+    name: Monday.com API
     description: >-
-      An expressive API to interact with your workflows, automate processes, power
-      integrations, and more!
-    humanURL: ' https://developer.monday.com/api-reference/'
-    tags: []
+      An expressive GraphQL API to interact with monday.com workflows, boards, items,
+      users, and updates - automate processes, power integrations, and more.
+    humanURL: https://developer.monday.com/api-reference/
+    baseURL: https://api.monday.com/v2
+    tags:
+      - Work Management
+      - CRM
+      - GraphQL
     properties:
       - type: Documentation
-        url: ' https://developer.monday.com/api-reference/'
+        url: https://developer.monday.com/api-reference/
+      - type: Authentication
+        url: https://developer.monday.com/api-reference/docs/authentication
+      - type: API Playground
+        url: https://monday.com/developers/v2/try-it-yourself
+      - type: GraphQL
+        url: https://raw.githubusercontent.com/api-evangelist/monday-com/refs/heads/main/graphql/monday-com-graphql.md
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
