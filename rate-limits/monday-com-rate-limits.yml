@@ -1,0 +1,37 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: monday.com
+providerId: monday-com
+created: '2026-05-04'
+modified: '2026-05-04'
+reconciled: true
+tags:
+  - Rate Limiting
+  - Work Management
+description: monday.com GraphQL API enforces complexity-based budgets.
+sources:
+  - https://monday.com/pricing
+  - https://developer.monday.com/api-reference/docs/rate-limits
+headers:
+  limit: X-RateLimit-Limit
+  remaining: X-RateLimit-Remaining
+responseCodes:
+  throttled: 429
+  complexityExceeded: 429
+limits:
+  - name: GraphQL complexity (per minute)
+    scope: account
+    metric: complexity_points
+    limit: 5000000
+    timeFrame: minute
+  - name: Daily request cap
+    scope: account
+    metric: requests_per_day
+    limit: 5000
+    timeFrame: day
+    notes: Soft default; raise via support.
+  - name: Concurrency
+    scope: account
+    metric: concurrent
+    limit: 10

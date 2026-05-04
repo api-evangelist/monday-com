@@ -1,0 +1,136 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: monday.com
+providerId: monday-com
+created: '2026-05-04'
+modified: '2026-05-04'
+reconciled: true
+tags:
+  - Work Management
+  - CRM
+  - Project Management
+description: monday.com tiered per-seat pricing. Most plans require minimum 3 seats.
+sources:
+  - https://monday.com/pricing
+plans:
+  - id: monday-free
+    name: Free
+    type: freemium
+    description: Up to 2 users; 3 boards.
+    entries:
+      - label: Per user
+        name: seat
+        type: subscription
+        metric: user
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: true
+      - label: Boards
+        name: boards
+        type: quota
+        metric: board
+        limit: 3
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: Up to 3 boards
+      - name: 200+ templates
+      - name: 8 column types
+      - name: iOS/Android apps
+  - id: monday-basic
+    name: Basic
+    type: paid
+    description: $9/seat/month.
+    entries:
+      - label: Per seat
+        name: seat
+        type: subscription
+        metric: user
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '9.00'
+        userMultiplied: true
+    elements:
+      - name: Unlimited free viewers
+      - name: Unlimited items
+      - name: 5GB file storage
+      - name: Prioritized support
+      - name: 1-board dashboard
+  - id: monday-standard
+    name: Standard
+    type: paid
+    description: $12/seat/month.
+    entries:
+      - label: Per seat
+        name: seat
+        type: subscription
+        metric: user
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '12.00'
+        userMultiplied: true
+    elements:
+      - name: Timeline/Gantt
+      - name: Calendar view
+      - name: Guest access
+      - name: Automations 250 actions/mo
+      - name: Integrations 250 actions/mo
+      - name: 5-board dashboard
+  - id: monday-pro
+    name: Pro
+    type: paid
+    description: $19/seat/month.
+    entries:
+      - label: Per seat
+        name: seat
+        type: subscription
+        metric: user
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '19.00'
+        userMultiplied: true
+    elements:
+      - name: Private boards
+      - name: Chart view
+      - name: Time tracking
+      - name: Formula column
+      - name: Automations 25K actions/mo
+      - name: Integrations 25K actions/mo
+      - name: 20-board dashboard
+  - id: monday-enterprise
+    name: Enterprise
+    type: enterprise
+    description: Custom pricing.
+    entries:
+      - label: Per seat (custom)
+        name: seat
+        type: subscription
+        metric: user
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: custom
+        userMultiplied: true
+    elements:
+      - name: Enterprise AI bundle
+      - name: Portfolio/resource management
+      - name: 250K automation/integration actions/mo
+      - name: Multi-level permissions
+      - name: Enterprise security
+      - name: Advanced analytics
+      - name: 50-board dashboard
+      - name: 24/7 support

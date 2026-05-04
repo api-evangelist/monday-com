@@ -1,0 +1,57 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: monday.com
+providerId: monday-com
+created: '2026-05-04'
+modified: '2026-05-04'
+reconciled: true
+tags:
+  - FinOps
+  - FOCUS
+  - Work Management
+description: FOCUS-aligned FinOps for monday.com.
+sources:
+  - https://monday.com/pricing
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: monday.com
+serviceCategory: Work Management
+billingModel:
+  pricingCategory: Per-Seat Subscription
+  billingFrequency: Monthly
+  billingCurrency: USD
+focusColumns:
+  ServiceName: monday.com
+  ServiceCategory: Work Management
+  ProviderName: monday.com
+  PublisherName: monday.com
+  BillingCurrency: USD
+meters:
+  - name: user_seats
+    unit: seat-month
+    aggregation: max
+    dimensions:
+      - plan
+  - name: automation_actions
+    unit: action
+    aggregation: sum
+  - name: integration_actions
+    unit: action
+    aggregation: sum
+  - name: ai_credits
+    unit: credit
+    aggregation: sum
+principles:
+  - name: Visibility
+    description: Track monday.com consumption monthly via admin/billing exports.
+  - name: Allocation
+    description: Tag seats/usage to teams or cost centers for chargeback.
+  - name: Optimization
+    description: Right-size tier and seat count quarterly; reclaim inactive seats.
+  - name: Accountability
+    description: Set spend alerts and renew at observed active utilization.
