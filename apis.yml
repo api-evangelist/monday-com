@@ -35,6 +35,20 @@ apis:
         url: https://monday.com/developers/v2/try-it-yourself
       - type: GraphQL
         url: https://raw.githubusercontent.com/api-evangelist/monday-com/refs/heads/main/graphql/monday-com-graphql.md
+integrations:
+  - name: monday.com Apps & Agents Framework
+  - name: monday
+  - name: Footer wm
+  - name: crm icon footer
+  - name: canvas icon footer
+  - name: workforms icon footer
+  - name: gdpr
+  - name: iso
+  - name: soc
+  - name: hipaa
+  - name: Work management
+  - name: Sales CRM
+  - name: Dev
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
@@ -60,3 +74,5 @@ common:
     sources:
       - https://monday.com/pricing
     updated: '2026-05-04'
+  - type: Integrations
+    url: https://developer.monday.com/apps
