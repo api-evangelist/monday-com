@@ -53,6 +53,10 @@ maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
 common:
+  - type: GitHubOrganization
+    url: https://github.com/mondaycom
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/mondaydotcom
   - type: Features
     data:
       - Free for up to 2 users with 3 boards
