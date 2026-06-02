@@ -12,7 +12,7 @@ tags:
   - Automation
   - GraphQL
 created: '2025-02-17'
-modified: '2026-05-04'
+modified: '2026-05-29'
 url: https://raw.githubusercontent.com/api-evangelist/monday-com/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
@@ -35,6 +35,10 @@ apis:
         url: https://monday.com/developers/v2/try-it-yourself
       - type: GraphQL
         url: https://raw.githubusercontent.com/api-evangelist/monday-com/refs/heads/main/graphql/monday-com-graphql.md
+      - type: AsyncAPI
+        url: https://raw.githubusercontent.com/api-evangelist/monday-com/refs/heads/main/asyncapi/monday-com-webhooks-asyncapi.yml
+      - type: Webhooks
+        url: https://developer.monday.com/api-reference/reference/webhooks
 integrations:
   - name: monday.com Apps & Agents Framework
   - name: monday

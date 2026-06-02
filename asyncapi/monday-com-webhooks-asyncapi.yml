@@ -1,0 +1,738 @@
+asyncapi: '2.6.0'
+id: 'urn:com:monday:webhooks'
+info:
+  title: monday.com Webhooks
+  version: '2026-05-29'
+  description: |
+    AsyncAPI 2.6 description of the monday.com webhook surface.
+
+    monday.com webhooks deliver real-time board, item, subitem, column,
+    and update events to a consumer-controlled HTTPS endpoint via HTTP
+    POST. Each delivery contains an `event` envelope whose schema varies
+    by `WebhookEventType`.
+
+    Subscriptions are managed through the monday.com GraphQL API
+    (`create_webhook` / `delete_webhook` mutations) and require the
+    `webhooks:read` and `webhooks:write` scopes.
+
+    Before a webhook is activated, monday.com sends a one-time
+    `challenge` POST to the consumer URL. The consumer must echo the
+    `challenge` field back in the response body. Failed deliveries are
+    retried once per minute for 30 minutes.
+
+    Sources:
+      - https://developer.monday.com/api-reference/reference/webhooks
+      - https://developer.monday.com/api-reference/docs/webhooks
+  contact:
+    name: monday.com Developers
+    url: https://developer.monday.com/
+  license:
+    name: monday.com Terms
+    url: https://monday.com/l/legal/tos/
+  tags:
+    - name: webhooks
+    - name: events
+    - name: work-management
+
+defaultContentType: application/json
+
+servers:
+  consumer:
+    url: '{webhookUrl}'
+    protocol: https
+    description: |
+      The consumer-provided HTTPS endpoint registered with the
+      `create_webhook` GraphQL mutation. monday.com performs URL
+      verification by POSTing a `challenge` JSON body that must be
+      echoed back. The URL has a 255-character limit.
+    variables:
+      webhookUrl:
+        description: Full HTTPS URL registered as the webhook receiver.
+        default: https://example.com/monday-webhooks
+
+channels:
+  /:
+    description: |
+      Single webhook receive channel. monday.com posts JSON payloads to
+      the URL the consumer registered. The first request is a
+      verification `challenge`; subsequent requests carry an `event`
+      envelope keyed by `WebhookEventType`.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    publish:
+      summary: Inbound webhook deliveries from monday.com
+      operationId: receiveMondayWebhook
+      description: |
+        monday.com delivers webhook events as HTTP POST requests with a
+        JSON body. The body is either a one-time URL verification
+        challenge or an event envelope wrapping one of the supported
+        `WebhookEventType` payloads.
+      message:
+        oneOf:
+          - $ref: '#/components/messages/UrlVerificationChallenge'
+          - $ref: '#/components/messages/ChangeColumnValue'
+          - $ref: '#/components/messages/ChangeStatusColumnValue'
+          - $ref: '#/components/messages/ChangeSubitemColumnValue'
+          - $ref: '#/components/messages/ChangeSpecificColumnValue'
+          - $ref: '#/components/messages/ChangeName'
+          - $ref: '#/components/messages/CreateItem'
+          - $ref: '#/components/messages/ItemArchived'
+          - $ref: '#/components/messages/ItemDeleted'
+          - $ref: '#/components/messages/ItemMovedToAnyGroup'
+          - $ref: '#/components/messages/ItemMovedToSpecificGroup'
+          - $ref: '#/components/messages/ItemRestored'
+          - $ref: '#/components/messages/CreateSubitem'
+          - $ref: '#/components/messages/ChangeSubitemName'
+          - $ref: '#/components/messages/MoveSubitem'
+          - $ref: '#/components/messages/SubitemArchived'
+          - $ref: '#/components/messages/SubitemDeleted'
+          - $ref: '#/components/messages/CreateColumn'
+          - $ref: '#/components/messages/CreateUpdate'
+          - $ref: '#/components/messages/EditUpdate'
+          - $ref: '#/components/messages/DeleteUpdate'
+          - $ref: '#/components/messages/CreateSubitemUpdate'
+
+components:
+  messages:
+    UrlVerificationChallenge:
+      name: UrlVerificationChallenge
+      title: URL verification challenge
+      summary: One-time challenge sent by monday.com when a webhook is created.
+      description: |
+        On webhook creation monday.com sends a JSON POST body containing
+        a randomly generated token in the `challenge` field. The
+        consumer must respond with an identical body to prove control
+        of the URL.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/ChallengePayload'
+
+    ChangeColumnValue:
+      name: ChangeColumnValue
+      title: change_column_value
+      summary: A column value on a top-level item was changed.
+      description: |
+        Fires when any column value on an item changes.
+        The envelope `event.type` is `update_column_value`.
+      contentType: application/json
+      bindings:
+        http:
+          headers:
+            type: object
+            properties:
+              Authorization:
+                type: string
+                description: |
+                  Optional JWT signed with the integration app's
+                  Signing Secret. Present when the webhook was created
+                  with an integration app OAuth token.
+          bindingVersion: '0.3.0'
+      payload:
+        type: object
+        required: [event]
+        properties:
+          event:
+            $ref: '#/components/schemas/ColumnValueChangeEvent'
+
+    ChangeStatusColumnValue:
+      name: ChangeStatusColumnValue
+      title: change_status_column_value
+      summary: A status column value changed (optionally filtered by index).
+      description: |
+        Fires when a status column changes. The `value` object contains
+        the status `label` (index, text, style). Envelope `event.type`
+        is `update_column_value`.
+      contentType: application/json
+      payload:
+        type: object
+        required: [event]
+        properties:
+          event:
+            $ref: '#/components/schemas/StatusColumnChangeEvent'
+
+    ChangeSubitemColumnValue:
+      name: ChangeSubitemColumnValue
+      title: change_subitem_column_value
+      summary: A column value on a subitem was changed.
+      description: |
+        Subitem column value change. Payload mirrors
+        `change_column_value` and also carries `parentItemId` and
+        `parentItemBoardId`.
+      contentType: application/json
+      payload:
+        type: object
+        required: [event]
+        properties:
+          event:
+            allOf:
+              - $ref: '#/components/schemas/ColumnValueChangeEvent'
+              - $ref: '#/components/schemas/SubitemRefs'
+
+    ChangeSpecificColumnValue:
+      name: ChangeSpecificColumnValue
+      title: change_specific_column_value
+      summary: A specific column (by columnId) value changed.
+      description: |
+        Fires when the configured `columnId` changes. Subitem columns
+        are not currently supported by this trigger.
+      contentType: application/json
+      payload:
+        type: object
+        required: [event]
+        properties:
+          event:
+            $ref: '#/components/schemas/ColumnValueChangeEvent'
+
+    ChangeName:
+      name: ChangeName
+      title: change_name
+      summary: An item's name was changed.
+      contentType: application/json
+      payload:
+        type: object
+        required: [event]
+        properties:
+          event:
+            $ref: '#/components/schemas/NameChangeEvent'
+
+    CreateItem:
+      name: CreateItem
+      title: create_item
+      summary: A new item (pulse) was created on a board.
+      description: |
+        Envelope `event.type` is `create_pulse`.
+      contentType: application/json
+      payload:
+        type: object
+        required: [event]
+        properties:
+          event:
+            $ref: '#/components/schemas/CreateItemEvent'
+
+    ItemArchived:
+      name: ItemArchived
+      title: item_archived
+      summary: An item was archived.
+      contentType: application/json
+      payload:
+        type: object
+        required: [event]
+        properties:
+          event:
+            $ref: '#/components/schemas/ItemLifecycleEvent'
+
+    ItemDeleted:
+      name: ItemDeleted
+      title: item_deleted
+      summary: An item was deleted.
+      contentType: application/json
+      payload:
+        type: object
+        required: [event]
+        properties:
+          event:
+            $ref: '#/components/schemas/ItemLifecycleEvent'
+
+    ItemMovedToAnyGroup:
+      name: ItemMovedToAnyGroup
+      title: item_moved_to_any_group
+      summary: An item was moved between groups on the same board.
+      contentType: application/json
+      payload:
+        type: object
+        required: [event]
+        properties:
+          event:
+            $ref: '#/components/schemas/ItemMoveEvent'
+
+    ItemMovedToSpecificGroup:
+      name: ItemMovedToSpecificGroup
+      title: item_moved_to_specific_group
+      summary: An item was moved into the configured destination group.
+      contentType: application/json
+      payload:
+        type: object
+        required: [event]
+        properties:
+          event:
+            $ref: '#/components/schemas/ItemMoveEvent'
+
+    ItemRestored:
+      name: ItemRestored
+      title: item_restored
+      summary: A previously archived/deleted item was restored.
+      contentType: application/json
+      payload:
+        type: object
+        required: [event]
+        properties:
+          event:
+            $ref: '#/components/schemas/ItemLifecycleEvent'
+
+    CreateSubitem:
+      name: CreateSubitem
+      title: create_subitem
+      summary: A new subitem was created under a parent item.
+      description: |
+        Envelope `event.type` is `create_pulse`. Includes `itemId`,
+        `parentItemId`, and `parentItemBoardId`.
+      contentType: application/json
+      payload:
+        type: object
+        required: [event]
+        properties:
+          event:
+            $ref: '#/components/schemas/CreateSubitemEvent'
+
+    ChangeSubitemName:
+      name: ChangeSubitemName
+      title: change_subitem_name
+      summary: A subitem's name was changed.
+      contentType: application/json
+      payload:
+        type: object
+        required: [event]
+        properties:
+          event:
+            allOf:
+              - $ref: '#/components/schemas/NameChangeEvent'
+              - $ref: '#/components/schemas/SubitemRefs'
+
+    MoveSubitem:
+      name: MoveSubitem
+      title: move_subitem
+      summary: A subitem was moved.
+      contentType: application/json
+      payload:
+        type: object
+        required: [event]
+        properties:
+          event:
+            allOf:
+              - $ref: '#/components/schemas/ItemMoveEvent'
+              - $ref: '#/components/schemas/SubitemRefs'
+
+    SubitemArchived:
+      name: SubitemArchived
+      title: subitem_archived
+      summary: A subitem was archived.
+      contentType: application/json
+      payload:
+        type: object
+        required: [event]
+        properties:
+          event:
+            allOf:
+              - $ref: '#/components/schemas/ItemLifecycleEvent'
+              - $ref: '#/components/schemas/SubitemRefs'
+
+    SubitemDeleted:
+      name: SubitemDeleted
+      title: subitem_deleted
+      summary: A subitem was deleted.
+      contentType: application/json
+      payload:
+        type: object
+        required: [event]
+        properties:
+          event:
+            allOf:
+              - $ref: '#/components/schemas/ItemLifecycleEvent'
+              - $ref: '#/components/schemas/SubitemRefs'
+
+    CreateColumn:
+      name: CreateColumn
+      title: create_column
+      summary: A new column was created on a board.
+      contentType: application/json
+      payload:
+        type: object
+        required: [event]
+        properties:
+          event:
+            $ref: '#/components/schemas/CreateColumnEvent'
+
+    CreateUpdate:
+      name: CreateUpdate
+      title: create_update
+      summary: An update (comment) was created on an item.
+      description: |
+        Envelope `event.type` is `create_update`. Carries the update's
+        `body`, `textBody`, `updateId`, and optional `replyId`.
+      contentType: application/json
+      payload:
+        type: object
+        required: [event]
+        properties:
+          event:
+            $ref: '#/components/schemas/UpdateEvent'
+
+    EditUpdate:
+      name: EditUpdate
+      title: edit_update
+      summary: An existing update (comment) was edited.
+      contentType: application/json
+      payload:
+        type: object
+        required: [event]
+        properties:
+          event:
+            $ref: '#/components/schemas/UpdateEvent'
+
+    DeleteUpdate:
+      name: DeleteUpdate
+      title: delete_update
+      summary: An update (comment) was deleted.
+      contentType: application/json
+      payload:
+        type: object
+        required: [event]
+        properties:
+          event:
+            $ref: '#/components/schemas/UpdateEvent'
+
+    CreateSubitemUpdate:
+      name: CreateSubitemUpdate
+      title: create_subitem_update
+      summary: An update (comment) was created on a subitem.
+      contentType: application/json
+      payload:
+        type: object
+        required: [event]
+        properties:
+          event:
+            allOf:
+              - $ref: '#/components/schemas/UpdateEvent'
+              - $ref: '#/components/schemas/SubitemRefs'
+
+  schemas:
+    ChallengePayload:
+      type: object
+      required: [challenge]
+      properties:
+        challenge:
+          type: string
+          description: Random token monday.com expects to be echoed back.
+          example: 3eZbrw1aBm2rZgRNFdxV2595E9CY3gmdALWMmHkvFXO7tYXAYM8P
+
+    EventBase:
+      type: object
+      description: Fields common to all monday.com webhook event envelopes.
+      properties:
+        userId:
+          type: integer
+          format: int64
+          description: ID of the user who triggered the event.
+        originalTriggerUuid:
+          type: string
+          nullable: true
+          description: Trigger UUID of the originating event in a chain, if any.
+        boardId:
+          type: integer
+          format: int64
+          description: ID of the board the event was raised on.
+        app:
+          type: string
+          description: Source application, e.g. `monday`.
+          example: monday
+        type:
+          type: string
+          description: |
+            Internal event type emitted in the payload. Note that this
+            differs from the subscription `WebhookEventType`. Observed
+            values include `create_pulse`, `update_column_value`, and
+            `create_update`.
+          example: update_column_value
+        triggerTime:
+          type: string
+          format: date-time
+          description: RFC3339 timestamp of when the event fired.
+        subscriptionId:
+          type: integer
+          format: int64
+          description: ID of the webhook subscription that delivered the event.
+        triggerUuid:
+          type: string
+          description: Unique identifier for this trigger instance.
+
+    SubitemRefs:
+      type: object
+      description: Additional references included on subitem-scoped events.
+      properties:
+        parentItemId:
+          type: string
+          description: ID of the parent item.
+        parentItemBoardId:
+          type: string
+          description: ID of the parent item's board.
+
+    CreateItemEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventBase'
+        - type: object
+          properties:
+            pulseId:
+              type: integer
+              format: int64
+              description: ID of the created item (pulse).
+            pulseName:
+              type: string
+              description: Name of the created item.
+            groupId:
+              type: string
+            groupName:
+              type: string
+            groupColor:
+              type: string
+            isTopGroup:
+              type: boolean
+            columnValues:
+              type: object
+              additionalProperties: true
+              description: Map of column IDs to their initial values.
+            type:
+              type: string
+              enum: [create_pulse]
+
+    CreateSubitemEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventBase'
+        - $ref: '#/components/schemas/SubitemRefs'
+        - type: object
+          properties:
+            pulseId:
+              type: integer
+              format: int64
+            itemId:
+              type: integer
+              format: int64
+            pulseName:
+              type: string
+            groupId:
+              type: string
+            groupName:
+              type: string
+            groupColor:
+              type: string
+            isTopGroup:
+              type: boolean
+            columnValues:
+              type: object
+              additionalProperties: true
+            type:
+              type: string
+              enum: [create_pulse]
+
+    ColumnValueChangeEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventBase'
+        - type: object
+          properties:
+            groupId:
+              type: string
+            pulseId:
+              type: integer
+              format: int64
+            pulseName:
+              type: string
+            columnId:
+              type: string
+              description: ID of the column whose value changed.
+            columnType:
+              type: string
+              description: monday.com column type, e.g. `date`, `color`, `text`.
+            columnTitle:
+              type: string
+            value:
+              description: New column value. Shape varies by column type.
+              nullable: true
+              oneOf:
+                - type: object
+                  additionalProperties: true
+                - type: string
+                - type: number
+                - type: boolean
+                - type: array
+                  items: {}
+            previousValue:
+              description: Previous column value. Same shape as `value`.
+              nullable: true
+              oneOf:
+                - type: object
+                  additionalProperties: true
+                - type: string
+                - type: number
+                - type: boolean
+                - type: array
+                  items: {}
+            changedAt:
+              type: number
+              format: double
+              description: Unix epoch seconds (fractional) when the value changed.
+            isTopGroup:
+              type: boolean
+            type:
+              type: string
+              enum: [update_column_value]
+
+    StatusColumnChangeEvent:
+      allOf:
+        - $ref: '#/components/schemas/ColumnValueChangeEvent'
+        - type: object
+          properties:
+            value:
+              type: object
+              nullable: true
+              properties:
+                label:
+                  type: object
+                  properties:
+                    index:
+                      type: integer
+                      description: Status index.
+                    text:
+                      type: string
+                    style:
+                      type: object
+                      properties:
+                        color:
+                          type: string
+                        border:
+                          type: string
+                        var_name:
+                          type: string
+                post_id:
+                  nullable: true
+
+    NameChangeEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventBase'
+        - type: object
+          properties:
+            pulseId:
+              type: integer
+              format: int64
+            groupId:
+              type: string
+            value:
+              type: object
+              description: New name value.
+              additionalProperties: true
+            previousValue:
+              type: object
+              nullable: true
+              additionalProperties: true
+            changedAt:
+              type: number
+              format: double
+            isTopGroup:
+              type: boolean
+
+    ItemLifecycleEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventBase'
+        - type: object
+          properties:
+            pulseId:
+              type: integer
+              format: int64
+            pulseName:
+              type: string
+            groupId:
+              type: string
+            isTopGroup:
+              type: boolean
+
+    ItemMoveEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventBase'
+        - type: object
+          properties:
+            pulseId:
+              type: integer
+              format: int64
+            pulseName:
+              type: string
+            sourceGroupId:
+              type: string
+              description: Group the item was moved from.
+            destGroupId:
+              type: string
+              description: Group the item was moved to.
+            groupId:
+              type: string
+              description: Resulting group ID after the move.
+            isTopGroup:
+              type: boolean
+
+    CreateColumnEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventBase'
+        - type: object
+          properties:
+            columnId:
+              type: string
+            columnType:
+              type: string
+            columnTitle:
+              type: string
+
+    UpdateEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventBase'
+        - type: object
+          properties:
+            pulseId:
+              type: integer
+              format: int64
+              description: ID of the item the update is attached to.
+            body:
+              type: string
+              description: HTML body of the update.
+            textBody:
+              type: string
+              description: Plain-text body of the update.
+            updateId:
+              type: integer
+              format: int64
+            replyId:
+              type: integer
+              format: int64
+              nullable: true
+              description: ID of the parent update if this is a reply.
+            type:
+              type: string
+              enum: [create_update, edit_update, delete_update]
+
+    WebhookEventType:
+      type: string
+      description: |
+        Enum used when creating a subscription via the `create_webhook`
+        GraphQL mutation. Note: payload `event.type` may differ
+        (e.g. `create_pulse` for `create_item`/`create_subitem`,
+        `update_column_value` for column changes).
+      enum:
+        - change_column_value
+        - change_status_column_value
+        - change_subitem_column_value
+        - change_specific_column_value
+        - change_name
+        - create_item
+        - item_archived
+        - item_deleted
+        - item_moved_to_any_group
+        - item_moved_to_specific_group
+        - item_restored
+        - create_subitem
+        - change_subitem_name
+        - move_subitem
+        - subitem_archived
+        - subitem_deleted
+        - create_column
+        - create_update
+        - edit_update
+        - delete_update
+        - create_subitem_update
