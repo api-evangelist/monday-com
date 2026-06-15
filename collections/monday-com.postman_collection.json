@@ -1,0 +1,255 @@
+{
+  "item": [
+    {
+      "id": "41b2056c-7b50-4246-83a0-914397bedd50",
+      "name": "GraphQL endpoint",
+      "request": {
+        "name": "GraphQL endpoint",
+        "description": {
+          "content": "Execute a GraphQL query or mutation against the monday.com Platform\nAPI. Common queries include `boards`, `items`, `me`, `users`,\n`teams`, `workspaces`, `updates`, and `account`. Common mutations\ninclude `create_item`, `change_column_value`,\n`change_multiple_column_values`, `create_board`, `delete_item`,\n`create_update`, and `create_webhook`.\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            ""
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "API version (e.g. `2025-04`).",
+            "key": "API-Version",
+            "value": "<string>"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"<string>\",\n  \"variables\": {\n    \"key_0\": 7238\n  },\n  \"operationName\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "4c7bd224-c5ac-4189-a2df-cf109109837e",
+          "name": "GraphQL response (data and/or errors)",
+          "originalRequest": {
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "API version (e.g. `2025-04`).",
+                "key": "API-Version",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"query { boards(limit: 10) { id name } }\\n\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"key_0\": 2151.9180711899876,\n    \"key_1\": 2687.5581981140595\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": [\n        \"string\",\n        \"string\"\n      ],\n      \"extensions\": {\n        \"key_0\": 2427\n      }\n    },\n    {\n      \"message\": \"string\",\n      \"path\": [\n        \"string\",\n        \"string\"\n      ],\n      \"extensions\": {\n        \"key_0\": 2630.37756334193\n      }\n    }\n  ],\n  \"account_id\": 3353\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "af184c21-e63e-4043-b2ab-ff5544691b9c",
+          "name": "Missing or invalid token",
+          "originalRequest": {
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "API version (e.g. `2025-04`).",
+                "key": "API-Version",
+                "value": "<string>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"query { boards(limit: 10) { id name } }\\n\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "65d8c308-7bf5-41f4-9bfe-6565eac23a7e",
+          "name": "Complexity budget or rate limit exceeded",
+          "originalRequest": {
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "API version (e.g. `2025-04`).",
+                "key": "API-Version",
+                "value": "<string>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"query { boards(limit: 10) { id name } }\\n\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Too Many Requests",
+          "code": 429,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.monday.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fff6d7e0-8d73-453e-87fe-858677b4b648",
+    "name": "monday.com Platform GraphQL API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The monday.com Platform API is a GraphQL API exposed at a single endpoint,\n`https://api.monday.com/v2`. Requests are POSTed as JSON with `query` and\noptional `variables`. Authentication uses a personal API token (or OAuth\n2.0 access token) supplied in the `Authorization` header.\n\nThe GraphQL schema covers boards, items, columns, groups, views, users,\nteams, workspaces, updates, files, webhooks, audit logs, dashboards, and\nnotifications — with bulk operations (`ingest_items`, `backfill_items`,\n`fetch_job_status`), search, and aggregation. API versioning is supported\nvia the `API-Version` header (e.g. `2025-04`).\n\n\nContact Support:\n Name: monday.com Developers",
+      "type": "text/plain"
+    }
+  }
+}

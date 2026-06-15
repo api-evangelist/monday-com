@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "monday.com Platform GraphQL API",
+    "version": "v2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GraphQL endpoint",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.monday.com/v2/",
+        "headers": [
+          {
+            "name": "API-Version",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Execute a GraphQL query or mutation against the monday.com Platform\nAPI. Common queries include `boards`, `items`, `me`, `users`,\n`teams`, `workspaces`, `updates`, and `account`. Common mutations\ninclude `create_item`, `change_column_value`,\n`change_multiple_column_values`, `create_board`, `delete_item`,\n`create_update`, and `create_webhook`.\n"
+    }
+  ],
+  "bundled": true
+}
