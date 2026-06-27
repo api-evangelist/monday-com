@@ -84,5 +84,5 @@ common:
   updated: '2026-05-04'
 - type: Integrations
   url: https://developer.monday.com/apps
-- type: LLMsTxt
+- type: LlmsText
   url: https://developer.monday.com/llms.txt
