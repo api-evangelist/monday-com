@@ -1,0 +1,53 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/monday-com-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/monday-com-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://auth.monday.com/oauth2/authorize
+    tokenUrl: https://auth.monday.com/oauth2/token
+scopes:
+- scope: boards:read
+  description: Read boards, items, columns, groups
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/monday-com-openapi.yml
+- scope: boards:write
+  description: Create and update boards, items, columns, groups
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/monday-com-openapi.yml
+- scope: notifications:write
+  description: Create notifications
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/monday-com-openapi.yml
+- scope: updates:write
+  description: Create updates and replies
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/monday-com-openapi.yml
+- scope: users:read
+  description: Read user, team, and account information
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/monday-com-openapi.yml
+- scope: webhooks:write
+  description: Create and manage webhooks
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/monday-com-openapi.yml
+- scope: workspaces:read
+  description: Read workspaces
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/monday-com-openapi.yml

@@ -57,6 +57,8 @@ maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 common:
+- type: OAuthScopes
+  url: scopes/monday-com-scopes.yml
 - type: GitHubOrganization
   url: https://github.com/mondaycom
 - type: LinkedIn
@@ -86,3 +88,5 @@ common:
   url: https://developer.monday.com/apps
 - type: LlmsText
   url: https://developer.monday.com/llms.txt
+- url: https://monday.com/blog
+  type: Blog
