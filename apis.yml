@@ -57,6 +57,12 @@ maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 common:
+- type: TrustCenter
+  url: security/monday-com-trust-center.yml
+- type: DomainSecurity
+  url: security/monday-com-domain-security.yml
+- type: Authentication
+  url: authentication/monday-com-authentication.yml
 - type: OAuthScopes
   url: scopes/monday-com-scopes.yml
 - type: GitHubOrganization
