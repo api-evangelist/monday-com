@@ -2,9 +2,22 @@ aid: monday-com
 name: Monday.com
 description: An expressive API to interact with your workflows, automate processes, power integrations, and more!
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/monday-com.png
 tags:
 - Work Management
 - CRM
@@ -17,7 +30,9 @@ specificationVersion: '0.19'
 apis:
 - aid: monday-com:monday-com
   name: Monday.com API
-  description: An expressive GraphQL API to interact with monday.com workflows, boards, items, users, and updates - automate processes, power integrations, and more.
+  description: >-
+    An expressive GraphQL API to interact with monday.com workflows, boards, items, users, and updates
+    - automate processes, power integrations, and more.
   humanURL: https://developer.monday.com/api-reference/
   baseURL: https://api.monday.com/v2
   tags:
@@ -32,13 +47,27 @@ apis:
   - type: API Playground
     url: https://monday.com/developers/v2/try-it-yourself
   - type: GraphQL
-    url: https://raw.githubusercontent.com/api-evangelist/monday-com/refs/heads/main/graphql/monday-com-graphql.md
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/monday-com/refs/heads/main/graphql/monday-com-graphql.md
   - type: AsyncAPI
-    url: https://raw.githubusercontent.com/api-evangelist/monday-com/refs/heads/main/asyncapi/monday-com-webhooks-asyncapi.yml
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/monday-com/refs/heads/main/asyncapi/monday-com-webhooks-asyncapi.yml
   - type: Webhooks
     url: https://developer.monday.com/api-reference/reference/webhooks
   - url: graphql/monday-com-graphql.md
     type: GraphQL
+- aid: monday-com:monday-com-monday-com-platform-graphql-api-api
+  name: Monday.com Monday.com Platform GraphQL API API
+  description: >-
+    The Monday.com Platform GraphQL API API from Monday.com — 1 operation(s) for monday.com platform graphql
+    api.
+  humanURL: https://developer.monday.com/api-reference/
+  baseURL: https://api.monday.com/v2
+  tags:
+  - Monday.com Platform GraphQL API
+  properties:
+  - type: OpenAPI
+    url: openapi/monday-com-monday-com-platform-graphql-api-api-openapi.yml
 integrations:
 - name: monday.com Apps & Agents Framework
 - name: monday
