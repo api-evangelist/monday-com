@@ -1,0 +1,144 @@
+openapi: 3.1.0
+info:
+  title: monday.com Platform GraphQL API
+  version: "v2"
+  description: |
+    The monday.com Platform API is a GraphQL API exposed at a single endpoint,
+    `https://api.monday.com/v2`. Requests are POSTed as JSON with `query` and
+    optional `variables`. Authentication uses a personal API token (or OAuth
+    2.0 access token) supplied in the `Authorization` header.
+
+    The GraphQL schema covers boards, items, columns, groups, views, users,
+    teams, workspaces, updates, files, webhooks, audit logs, dashboards, and
+    notifications — with bulk operations (`ingest_items`, `backfill_items`,
+    `fetch_job_status`), search, and aggregation. API versioning is supported
+    via the `API-Version` header (e.g. `2025-04`).
+  contact:
+    name: monday.com Developers
+    url: https://developer.monday.com/api-reference/
+servers:
+  - url: https://api.monday.com/v2
+    description: monday.com Platform GraphQL API
+security:
+  - apiToken: []
+  - oauth2: []
+paths:
+  /:
+    post:
+      operationId: graphql
+      summary: GraphQL endpoint
+      description: |
+        Execute a GraphQL query or mutation against the monday.com Platform
+        API. Common queries include `boards`, `items`, `me`, `users`,
+        `teams`, `workspaces`, `updates`, and `account`. Common mutations
+        include `create_item`, `change_column_value`,
+        `change_multiple_column_values`, `create_board`, `delete_item`,
+        `create_update`, and `create_webhook`.
+      parameters:
+        - name: API-Version
+          in: header
+          required: false
+          description: API version (e.g. `2025-04`).
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GraphQLRequest"
+            examples:
+              listBoards:
+                summary: List boards
+                value:
+                  query: |
+                    query { boards(limit: 10) { id name } }
+              createItem:
+                summary: Create an item
+                value:
+                  query: |
+                    mutation ($board: ID!, $name: String!) {
+                      create_item(board_id: $board, item_name: $name) { id }
+                    }
+                  variables:
+                    board: "123456789"
+                    name: "New task"
+              changeColumnValue:
+                summary: Change a column value
+                value:
+                  query: |
+                    mutation ($board: ID!, $item: ID!, $col: String!, $val: JSON!) {
+                      change_column_value(board_id: $board, item_id: $item,
+                        column_id: $col, value: $val) { id }
+                    }
+                  variables:
+                    board: "123456789"
+                    item: "987654321"
+                    col: "status"
+                    val: "{\"label\":\"Done\"}"
+      responses:
+        "200":
+          description: GraphQL response (data and/or errors)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GraphQLResponse"
+        "401":
+          description: Missing or invalid token
+        "429":
+          description: Complexity budget or rate limit exceeded
+components:
+  securitySchemes:
+    apiToken:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: |
+        Personal API token from the monday.com developer settings, passed as
+        the `Authorization` header value (no `Bearer` prefix).
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://auth.monday.com/oauth2/authorize
+          tokenUrl: https://auth.monday.com/oauth2/token
+          scopes:
+            "boards:read": Read boards, items, columns, groups
+            "boards:write": Create and update boards, items, columns, groups
+            "users:read": Read user, team, and account information
+            "webhooks:write": Create and manage webhooks
+            "updates:write": Create updates and replies
+            "workspaces:read": Read workspaces
+            "notifications:write": Create notifications
+  schemas:
+    GraphQLRequest:
+      type: object
+      required: [query]
+      properties:
+        query:
+          type: string
+          description: GraphQL query or mutation document.
+        variables:
+          type: object
+          additionalProperties: true
+        operationName:
+          type: string
+    GraphQLResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          additionalProperties: true
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              message: { type: string }
+              path:
+                type: array
+                items: { type: string }
+              extensions:
+                type: object
+                additionalProperties: true
+        account_id:
+          type: integer

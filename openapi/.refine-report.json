@@ -1,0 +1,14 @@
+{
+  "provider": "monday-com",
+  "sources": [
+    "monday-com-monday-com-platform-graphql-api-api-openapi.yml"
+  ],
+  "outputs": [
+    "monday-com-monday-com-platform-graphql-api-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
