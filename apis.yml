@@ -26,7 +26,7 @@ tags:
 created: '2025-02-17'
 modified: '2026-05-29'
 url: https://raw.githubusercontent.com/api-evangelist/monday-com/refs/heads/main/apis.yml
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: monday-com:monday-com
   name: Monday.com API
