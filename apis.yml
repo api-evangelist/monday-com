@@ -97,6 +97,8 @@ maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 common:
+- type: Website
+  url: https://www.monday.com/
 - type: AgenticAccess
   url: agentic-access/monday-com-agentic-access.yml
 - type: TrustCenter
