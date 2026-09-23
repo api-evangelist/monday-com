@@ -1,27 +1,10 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: monday.com Platform GraphQL Monday.com Platform GraphQL API API
+  title: Monday.com Platform GraphQL API
   version: v2
   description: 'The monday.com Platform API is a GraphQL API exposed at a single endpoint,
 
-    `https://api.monday.com/v2`. Requests are POSTed as JSON with `query` and
-
-    optional `variables`. Authentication uses a personal API token (or OAuth
-
-    2.0 access token) supplied in the `Authorization` header.
-
-
-    The GraphQL schema covers boards, items, columns, groups, views, users,
-
-    teams, workspaces, updates, files, webhooks, audit logs, dashboards, and
-
-    notifications — with bulk operations (`ingest_items`, `backfill_items`,
-
-    `fetch_job_status`), search, and aggregation. API versioning is supported
-
-    via the `API-Version` header (e.g. `2025-04`).
-
-    '
+    `https://api.monday.com/v2`.'
   contact:
     name: monday.com Developers
     url: https://developer.monday.com/api-reference/
@@ -48,9 +31,7 @@ paths:
 
         `change_multiple_column_values`, `create_board`, `delete_item`,
 
-        `create_update`, and `create_webhook`.
-
-        '
+        `create_update`, and `create_webhook`.'
       parameters:
       - name: API-Version
         in: header

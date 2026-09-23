@@ -1,7 +1,7 @@
 {
   "provider": "monday-com",
   "sources": [
-    "monday-com-monday-com-platform-graphql-api-api-openapi.yml"
+    "_original/monday-com-openapi.yml"
   ],
   "outputs": [
     "monday-com-monday-com-platform-graphql-api-api-openapi.yml"
@@ -9,6 +9,14 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "monday-com-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "monday-com-openapi.yml: tagged paths POST / -> Monday.com Platform GraphQL API",
+    "monday-com-openapi.yml: declared missing tag: Monday.com Platform GraphQL API",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "monday-com-monday-com-platform-graphql-api-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

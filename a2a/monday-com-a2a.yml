@@ -1,0 +1,37 @@
+generated: '2026-09-20'
+method: probed
+source: https://monday.com/.well-known/agent-card.json
+description: 'A2A Agent Card observed at /.well-known/agent-card.json on monday.com. Provider-published
+  by construction — served from the provider''s own host and saved verbatim; nothing here is derived or
+  generated. RESTORED 2026-09-20: this card was catalogued under the retired slug `monday`, which was
+  merged into `monday-com` on 2026-09-15. The merge did not carry a2a/ across, so the card dropped out
+  of the catalog until it was re-fetched from the provider.'
+discovery:
+  path: /.well-known/agent-card.json
+  canonical: true
+  host: monday.com
+conformance:
+  spec: A2A 1.0.0
+  grade: flavored
+  protocol_version: null
+  preferred_transport: null
+  deviations:
+  - no-protocolVersion
+card:
+  name: monday.com MCP Server
+  description: Interact with monday.com boards, items, columns, and workflows via the GraphQL API.
+  url: https://mcp.monday.com/mcp
+  version: 1.0.0
+  documentation_url: https://developer.monday.com
+  skills: 1
+  file: monday-com-agent-card.json
+x-evidence:
+  fetched: '2026-09-20'
+  url: https://monday.com/.well-known/agent-card.json
+  http_status: 200
+  content_type: application/json
+  note: Verbatim body saved alongside this manifest. No field inferred.
+x-restored-from:
+  retired_slug: monday
+  merged: '2026-09-15'
+  previously_fetched: '2026-07-28'
