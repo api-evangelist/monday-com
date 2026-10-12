@@ -1,0 +1,495 @@
+generated: '2026-10-12'
+method: searched
+source:
+- https://zapier.com/apps/monday/integrations
+checked:
+- https://composio.dev/toolkits/monday-com
+- https://monid.ai/tools/monday-com
+- https://n8n.io/integrations/monday-com/
+- https://n8n.io/integrations/monday/
+- https://zapier.com/apps/monday-com/integrations
+- https://zapier.com/apps/monday/integrations
+summary: null
+marketplace_apps:
+- marketplace: zapier
+  channel: ipaas-listing
+  app: monday
+  url: https://zapier.com/apps/monday/integrations
+  external_url: https://monday.com/
+  partner_tier: BRONZE
+  triggers:
+  - key: column_value_changed_in_board
+    label: Any Column Value Changed in Board
+  - key: item_created_in_board
+    label: New Item in Board
+  - key: item_moved_to_group
+    label: Item Moved to Group (Same or Different Board)
+  - key: new_board
+    label: New Board
+  - key: new_sub_item
+    label: New Subitem on Board
+  - key: specific_columns_values_changed_in_board
+    label: Specific Columns Values Changed in Board
+  - key: specific_column_value_changed_in_board
+    label: Specific Column Value Changed in Board
+  - key: specific_subitem_column_value_changed_in_board
+    label: Specific Subitem Column Value Changed in Board
+  - key: subitem_column_value_changed_in_board
+    label: Any Subitem Column Value Changed in Board
+  - key: subitem_update_created_in_board
+    label: New Subitem Update in Board
+  - key: update_created_in_board
+    label: New Update in Board
+  - key: user_created
+    label: New User
+  actions:
+  - key: archive_board
+    label: Archive Board
+  - key: archive_group
+    label: Archive Group
+  - key: archive_item
+    label: Archive Item
+  - key: change_item_name_column_value
+    label: Update Item Name
+  - key: change_multiple_columns_value
+    label: Update Item
+  - key: create_board
+    label: Create Board
+  - key: create_column
+    label: Create Column
+  - key: create_group
+    label: Create Group
+  - key: create_item
+    label: Create Item
+  - key: create_subitem
+    label: Create Subitem
+  - key: create_update
+    label: Create Update
+  - key: delete_group
+    label: Delete Group
+  - key: delete_item
+    label: Delete Item
+  - key: duplicate_group
+    label: Group Position
+  - key: duplicate_item
+    label: Duplicate Item
+  - key: move_item_to_group
+    label: Move Item to Group
+  - key: update_sub_item
+    label: Update Subitem
+  - key: upload_file
+    label: Upload File to Specific Column
+  - key: _zap_raw_request
+    label: API Request (Beta)
+  searches:
+  - key: find_items
+    label: Find Items
+  - key: find_subitems
+    label: Find Subitems
+  - key: find_user_by_name
+    label: Find User by Name
+  - key: get_board_values
+    label: Get Board Values
+  - key: get_column_values
+    label: Get Column Values
+  - key: get_file_value
+    label: Get File Column Values
+  - key: get_group_details
+    label: Get Group Details
+  - key: get_group_name
+    label: Get Group Names for a Board
+  - key: get_user_details
+    label: Get User Details
+edges:
+- partner_name: HubSpot
+  partner: hubspot
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/hubspot
+  direction: third-party
+  category: Marketing Automation
+  partner_url: http://www.hubspot.com/
+- partner_name: Typeform
+  partner: typeform
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/typeform
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://www.typeform.com/signup?utm_medium=referral&utm_source=zapier&utm_campaign=zapier_integration&utm_content=marketplace
+- partner_name: Microsoft Outlook
+  partner: microsoft-outlook
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/microsoft-outlook
+  direction: third-party
+  category: Calendar
+  partner_url: https://outlook.live.com/
+- partner_name: Gmail
+  partner: gmail
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/gmail
+  direction: third-party
+  category: Email
+  partner_url: https://mail.google.com/
+- partner_name: Gravity Forms
+  partner: gravity-forms
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/gravity-forms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://www.gravityforms.com/?utm_campaign=partners&utm_source=zapier-listing-learn-more&utm_medium=free-placement
+- partner_name: Google Forms
+  partner: google-forms
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/google-forms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: http://google.com/
+- partner_name: Mailchimp
+  partner: mailchimp
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/mailchimp
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://mailchimp.com/
+- partner_name: PandaDoc
+  partner: pandadoc
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/pandadoc
+  direction: third-party
+  category: Documents
+  partner_url: https://www.pandadoc.com/integrations/zapier/?utm_source=zapier-marketplace&utm_medium=partner&utm_campaign=2020-11-inbd-marketplace-websitevisit-pandadoc-zapier-integration
+- partner_name: Google Calendar
+  partner: google-calendar
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/google-calendar
+  direction: third-party
+  category: Calendar
+  partner_url: https://calendar.google.com/
+- partner_name: Facebook Lead Ads
+  partner: facebook-lead-ads
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/facebook-lead-ads
+  direction: third-party
+  category: Ads & Conversion
+  partner_url: https://www.facebook.com/business/ads/lead-ads
+- partner_name: LeadConnector
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/leadconnector
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.leadconnectorhq.com/
+- partner_name: Xero
+  partner: xero
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/xero
+  direction: third-party
+  category: Accounting
+  partner_url: https://xero5440.partnerlinks.io/uvwuuwrxyoi8
+- partner_name: Google Drive
+  partner: google-drive
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/google-drive
+  direction: third-party
+  category: File Management & Storage
+  partner_url: https://www.google.com/drive/
+- partner_name: Google Docs
+  partner: google-docs
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/google-docs
+  direction: third-party
+  category: Documents
+  partner_url: http://google.com/
+- partner_name: Calendly
+  partner: calendly
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/calendly
+  direction: third-party
+  category: Scheduling & Booking
+  partner_url: https://calendly.com/?utm_medium=partner&utm_source=zapier&utm_campaign=main_partner_page&utm_content=main_inbound_link
+- partner_name: QuickBooks Online
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/quickbooks
+  direction: third-party
+  category: Accounting
+  partner_url: http://intuit.com/
+- partner_name: Perspective
+  partner: perspective
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/perspective
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://perspective.co/
+- partner_name: Dropbox
+  partner: dropbox
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/dropbox
+  direction: third-party
+  category: File Management & Storage
+  partner_url: https://dropbox.com/
+- partner_name: Microsoft Excel
+  partner: null
+  partner_match: null
+  partner_candidate: zapier
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/excel
+  direction: third-party
+  category: Microsoft
+  partner_url: https://zapier.com/office.com
+- partner_name: Shopify
+  partner: shopify
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/shopify
+  direction: third-party
+  category: eCommerce
+  partner_url: https://www.shopify.com/
+- partner_name: Formsite
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/formsite
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://www.formsite.com/
+- partner_name: Wix
+  partner: wix
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/wix
+  direction: third-party
+  category: Website Builders
+  partner_url: https://www.wix.com/
+- partner_name: Slack
+  partner: slack
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/slack
+  direction: third-party
+  category: Team Chat
+  partner_url: https://slack.com/
+- partner_name: Acuity Scheduling
+  partner: acuity-scheduling
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/acuity-scheduling
+  direction: third-party
+  category: Scheduling & Booking
+  partner_url: https://acuityscheduling.com/?utm_source=zapier.com&utm_medium=referral&utm_campaign=integration-page
+- partner_name: Airtable
+  partner: airtable
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/airtable
+  direction: third-party
+  category: Databases
+  partner_url: https://airtable.com/
+- partner_name: WooCommerce
+  partner: woocommerce
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/woocommerce
+  direction: third-party
+  category: eCommerce
+  partner_url: https://woocommerce.com/products/woocommerce-zapier/?utm_source=zapier&utm_medium=website&utm_campaign=integration
+- partner_name: Pipedrive
+  partner: pipedrive
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/pipedrive
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://pipedrive.com/
+- partner_name: Kajabi
+  partner: kajabi
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/kajabi
+  direction: third-party
+  category: eCommerce
+  partner_url: http://kajabi.com/
+- partner_name: Jotform
+  partner: jotform
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/jotform
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: http://www.jotform.com/
+- partner_name: Squarespace Forms
+  partner: squarespace
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/monday/integrations/squarespace-forms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://www.squarespace.com/
+templates:
+- title: Create items on a monday.com board for new rows on Google Sheets
+  url: https://zapier.com/apps/google-sheets/integrations/monday/7357/create-items-on-a-mondaycom-board-for-new-rows-on-google-sheets
+  apps:
+  - google-sheets
+  - monday
+- title: Create monday.com items on boards for new form submissions in Gravity Forms
+  url: https://zapier.com/apps/gravity-forms/integrations/monday/191790/create-mondaycom-items-on-boards-for-new-form-submissions-in-gravity-forms
+  apps:
+  - gravity-forms
+  - monday
+- title: Create columns on monday.com for new Google Ads leads
+  url: https://zapier.com/apps/google-ads/integrations/monday/543326/create-columns-on-mondaycom-for-new-google-ads-leads
+  apps:
+  - google-ads
+  - monday
+- title: Add items to monday.com for new emails in Gmail [Business Gmail Accounts Only]
+  url: https://zapier.com/apps/gmail/integrations/monday/7351/add-items-to-mondaycom-for-new-emails-in-gmail-business-gmail-accounts-only
+  apps:
+  - gmail
+  - monday
+- title: Create monday.com items from new Squarespace Forms form submissions
+  url: https://zapier.com/apps/monday/integrations/squarespace-forms/1169835/create-mondaycom-items-from-new-squarespace-forms-form-submissions
+  apps:
+  - squarespace-forms
+  - monday
+- title: Add new monday.com board items to your Google Ads contact list
+  url: https://zapier.com/apps/google-ads/integrations/monday/1635134/add-new-mondaycom-board-items-to-your-google-ads-contact-list
+  apps:
+  - monday
+  - google-ads
+- title: Add items in monday.com for new invitees created in Calendly
+  url: https://zapier.com/apps/calendly/integrations/monday/346166/add-items-in-mondaycom-for-new-invitees-created-in-calendly
+  apps:
+  - calendly
+  - monday
+- title: Generate monday.com items from new tasks in Google Tasks
+  url: https://zapier.com/apps/google-tasks/integrations/monday/962562/generate-mondaycom-items-from-new-tasks-in-google-tasks
+  apps:
+  - google-tasks
+  - monday
+- title: Create items in monday.com when new Wix forms are submitted
+  url: https://zapier.com/apps/monday/integrations/wix/1611133/create-items-in-mondaycom-when-new-wix-forms-are-submitted
+  apps:
+  - wix
+  - monday
+- title: Create new folders on Google Drive for new items on a monday.com board
+  url: https://zapier.com/apps/google-drive/integrations/monday/7361/create-new-folders-on-google-drive-for-new-items-on-a-mondaycom-board
+  apps:
+  - monday
+  - google-drive
+- title: Add items to monday.com for new entries on Wufoo
+  url: https://zapier.com/apps/monday/integrations/wufoo/7347/add-items-to-mondaycom-for-new-entries-on-wufoo
+  apps:
+  - wufoo
+  - monday
+- title: Create or update Brevo contacts from new items in monday.com boards
+  url: https://zapier.com/apps/brevo/integrations/monday/1220482/create-or-update-brevo-contacts-from-new-items-in-mondaycom-boards
+  apps:
+  - monday
+  - brevo
+template_total: 5600
