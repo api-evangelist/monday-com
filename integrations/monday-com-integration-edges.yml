@@ -3,6 +3,7 @@ method: searched
 source:
 - https://zapier.com/apps/monday/integrations
 checked:
+- https://aws.amazon.com/marketplace/
 - https://composio.dev/toolkits/monday-com
 - https://monid.ai/tools/monday-com
 - https://n8n.io/integrations/monday-com/
@@ -431,6 +432,23 @@ edges:
   direction: third-party
   category: Forms & Surveys
   partner_url: https://www.squarespace.com/
+- partner_name: AWS Marketplace
+  partner: amazon-web-services
+  partner_match: aggregator
+  type: marketplace
+  marketplace: aws-marketplace
+  channel: distribution
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://aws.amazon.com/marketplace/seller-profile?id=ed176b1f-d993-4903-8b1f-be4929936aac
+  listing_count: 3
+  apps:
+  - monday.com work management
+  - monday service
+  - monday dev
+  seller_name: monday.com
+  detected_by: sweep-cloud-marketplaces.py
+  detected: '2026-10-13'
 templates:
 - title: Create items on a monday.com board for new rows on Google Sheets
   url: https://zapier.com/apps/google-sheets/integrations/monday/7357/create-items-on-a-mondaycom-board-for-new-rows-on-google-sheets

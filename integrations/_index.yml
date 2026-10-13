@@ -255,7 +255,6 @@
   arazzo: null
 - slug: monday-com-microsoft-excel
   label: Microsoft Excel
-  partner: microsoft-excel
   partner_name: Microsoft Excel
   category: Microsoft
   type: marketplace
@@ -263,7 +262,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/monday/integrations/excel
   source: edge
-  status: pending-generation
+  status: pending-partner-spec
   arazzo: null
 - slug: monday-com-shopify
   label: Shopify
@@ -371,4 +370,16 @@
   evidence: https://zapier.com/apps/monday/integrations/jotform
   source: edge
   status: pending-generation
+  arazzo: null
+- slug: monday-com-aws-marketplace
+  label: AWS Marketplace
+  partner: amazon-web-services
+  partner_name: AWS Marketplace
+  type: marketplace
+  marketplace: aws-marketplace
+  channel: distribution
+  evidence: https://aws.amazon.com/marketplace/seller-profile?id=ed176b1f-d993-4903-8b1f-be4929936aac
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
   arazzo: null
