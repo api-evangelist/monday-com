@@ -11,6 +11,7 @@ checked:
 - https://monid.ai/tools/monday-com
 - https://n8n.io/integrations/monday-com/
 - https://n8n.io/integrations/monday/
+- https://registry.modelcontextprotocol.io/v0/servers
 - https://zapier.com/apps/monday-com/integrations
 - https://zapier.com/apps/monday/integrations
 - okta/integrations/okta-integration-edges.yml
@@ -512,6 +513,38 @@ edges:
       sync_behaviours:
       - update or create
   detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: MCP Registry
+  partner: mcp
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://registry.modelcontextprotocol.io/v0/servers?search=com.monday
+  contract_reference:
+    register: registry.modelcontextprotocol.io
+    spec_file: null
+    role: mcp-server-listing
+    registered_name: com.monday/monday.com
+    register_id: com.monday/monday.com
+    detected_by: sweep-agent-tools.py
+    detected: '2026-10-14'
+  mcp_registry:
+    servers:
+    - com.monday/monday.com
+    hosted_remote: 1
+    local_package: 0
+    transports:
+      sse: 1
+      streamable-http: 1
+    auth_declared: 1
+    catalog_declared: true
+    namespace_domains:
+    - monday.com
+  matched_by:
+  - namespace-domain
+  detected_by: sweep-agent-tools.py
   first_seen: '2026-10-14'
 - partner_name: Okta (own)
   partner: okta
