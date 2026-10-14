@@ -383,3 +383,27 @@
   relationship: distribution-channel
   status: not-a-workflow
   arazzo: null
+- slug: monday-com-hightouch
+  label: Hightouch
+  partner: hightouch
+  partner_name: Hightouch
+  type: coverage
+  marketplace: coverage
+  channel: partner-built
+  evidence: https://hightouch.com/docs/destinations/monday
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-census
+  label: Census
+  partner: getcensus
+  partner_name: Census
+  type: coverage
+  marketplace: coverage
+  channel: partner-built
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/monday
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
