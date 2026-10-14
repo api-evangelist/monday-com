@@ -13,6 +13,7 @@ checked:
 - https://n8n.io/integrations/monday/
 - https://zapier.com/apps/monday-com/integrations
 - https://zapier.com/apps/monday/integrations
+- okta/integrations/okta-integration-edges.yml
 summary: null
 marketplace_apps:
 - marketplace: zapier
@@ -452,6 +453,24 @@ edges:
   seller_name: monday.com
   detected_by: sweep-cloud-marketplaces.py
   detected: '2026-10-13'
+- partner_name: GitHub Marketplace (apps)
+  partner: github
+  partner_match: aggregator
+  type: marketplace
+  marketplace: github-apps
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://github.com/marketplace/monday-com-github
+  listing_count: 1
+  apps:
+  - monday.com + GitHub
+  publisher_name: monday.com
+  badges:
+  - Verified creator
+  - Verified domain
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
 - partner_name: Hightouch
   partner: hightouch
   partner_match: aggregator
@@ -494,24 +513,34 @@ edges:
       - update or create
   detected_by: sweep-cdp.py
   first_seen: '2026-10-14'
-- partner_name: GitHub Marketplace (apps)
-  partner: github
-  partner_match: aggregator
+- partner_name: Okta (own)
+  partner: okta
+  partner_match: mirror
+  mirror_match: domain
   type: marketplace
-  marketplace: github-apps
-  channel: partner-built
   relationship: platform-app
   direction: third-party
-  evidence: https://github.com/marketplace/monday-com-github
-  listing_count: 1
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.okta.com/integrations/mondaycom/
+  mirror_of: okta/integrations/okta-integration-edges.yml
   apps:
-  - monday.com + GitHub
-  publisher_name: monday.com
-  badges:
-  - Verified creator
-  - Verified domain
-  detected_by: sweep-devtools.py
+  - monday.com
+  listing_count: 1
   detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Single Sign-On
+  badges:
+  - OKTA_VERIFIED
+  features:
+  - CREATE
+  - DEACTIVATE
+  - GROUP_LINKING
+  - GROUP_PUSH
+  - SAML
+  - SYNC_PASSWORD
+  - UPDATE
+  - WORKFLOWS_CONNECTORS
 templates:
 - title: Create items on a monday.com board for new rows on Google Sheets
   url: https://zapier.com/apps/google-sheets/integrations/monday/7357/create-items-on-a-mondaycom-board-for-new-rows-on-google-sheets
