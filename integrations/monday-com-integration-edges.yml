@@ -6,6 +6,7 @@ checked:
 - https://aws.amazon.com/marketplace/
 - https://composio.dev/toolkits/monday-com
 - https://fivetran.com/docs/activations/destinations/available-destinations/monday
+- https://github.com/marketplace?type=apps
 - https://hightouch.com/docs/destinations/monday
 - https://monid.ai/tools/monday-com
 - https://n8n.io/integrations/monday-com/
@@ -493,6 +494,24 @@ edges:
       - update or create
   detected_by: sweep-cdp.py
   first_seen: '2026-10-14'
+- partner_name: GitHub Marketplace (apps)
+  partner: github
+  partner_match: aggregator
+  type: marketplace
+  marketplace: github-apps
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://github.com/marketplace/monday-com-github
+  listing_count: 1
+  apps:
+  - monday.com + GitHub
+  publisher_name: monday.com
+  badges:
+  - Verified creator
+  - Verified domain
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
 templates:
 - title: Create items on a monday.com board for new rows on Google Sheets
   url: https://zapier.com/apps/google-sheets/integrations/monday/7357/create-items-on-a-mondaycom-board-for-new-rows-on-google-sheets
