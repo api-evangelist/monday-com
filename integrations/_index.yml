@@ -419,6 +419,19 @@
   relationship: connector-coverage
   status: not-a-workflow
   arazzo: null
+- slug: monday-com-okta-own
+  label: Okta (own)
+  partner: okta
+  partner_name: Okta (own)
+  category: Single Sign-On
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.okta.com/integrations/mondaycom/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
 - slug: monday-com-mcp-registry
   label: MCP Registry
   partner: mcp
@@ -435,19 +448,6 @@
     registered_name: com.monday/monday.com
     register_id: com.monday/monday.com
     detected_by: sweep-agent-tools.py
-    detected: '2026-10-14'
-  status: not-a-workflow
-  arazzo: null
-- slug: monday-com-okta-own
-  label: Okta (own)
-  partner: okta
-  partner_name: Okta (own)
-  category: Single Sign-On
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://www.okta.com/integrations/mondaycom/
-  source: edge
-  relationship: platform-app
+    detected: '2026-10-15'
   status: not-a-workflow
   arazzo: null
