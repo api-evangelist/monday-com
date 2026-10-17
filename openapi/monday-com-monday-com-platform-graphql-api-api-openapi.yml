@@ -83,6 +83,19 @@ paths:
       - Monday.com Platform GraphQL API
 components:
   schemas:
+    GraphQLRequest:
+      type: object
+      required:
+      - query
+      properties:
+        query:
+          type: string
+          description: GraphQL query or mutation document.
+        variables:
+          type: object
+          additionalProperties: true
+        operationName:
+          type: string
     GraphQLResponse:
       type: object
       properties:
@@ -105,19 +118,6 @@ components:
                 additionalProperties: true
         account_id:
           type: integer
-    GraphQLRequest:
-      type: object
-      required:
-      - query
-      properties:
-        query:
-          type: string
-          description: GraphQL query or mutation document.
-        variables:
-          type: object
-          additionalProperties: true
-        operationName:
-          type: string
   securitySchemes:
     apiToken:
       type: apiKey
