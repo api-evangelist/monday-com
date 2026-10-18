@@ -549,3 +549,756 @@
     builder: Pipedream repo (component)
   status: not-a-workflow
   arazzo: null
+- slug: monday-com-airbyte
+  label: Airbyte
+  partner: airbyte
+  partner_name: Airbyte
+  type: marketplace
+  marketplace: airbyte-registry
+  channel: elt-connector
+  evidence: https://docs.airbyte.com/integrations/sources/monday
+  source: edge
+  relationship: ipaas-bridge
+  contract_reference:
+    register: Airbyte connector registry (connectors.airbyte.com cloud_registry.json + oss_registry.json)
+    spec_file: null
+    role: elt-connector:airbyte-certified
+    registered_name: Monday
+    matched_domain: monday.com
+    matched_by: domain
+    detected_by: sweep-data-integration.py
+    detected: '2026-10-18'
+    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
+    connectors:
+    - airbyte/source-monday
+    support_level:
+    - certified
+    release_stage:
+    - generally_available
+    in_cloud: true
+    builder: Airbyte (certified)
+    standard: Airbyte certified connector
+    certified_products:
+    - product: Airbyte certified source
+      type: source
+      lapsed: false
+      cloud: true
+  status: pending-generation
+  arazzo: null
+- slug: monday-com-meltano
+  label: Meltano
+  partner: meltano
+  partner_name: Meltano
+  type: marketplace
+  marketplace: meltano-hub
+  channel: elt-connector
+  evidence: https://hub.meltano.com/extractors/tap-monday--airbyte
+  source: edge
+  relationship: ipaas-bridge
+  contract_reference:
+    register: Meltano Hub (github.com/meltano/hub _data/meltano extractors + loaders)
+    spec_file: null
+    role: elt-connector:meltano-hub
+    registered_name: Monday.com
+    matched_domain: monday.com
+    matched_by: domain
+    detected_by: sweep-data-integration.py
+    detected: '2026-10-18'
+    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
+    plugins:
+    - tap-monday--airbyte
+    - tap-monday--gthesheep
+    maintenance_status:
+    - active
+    - beta
+    quality:
+    - bronze
+    - silver
+    builder: 'community (Meltano Hub variant maintainers: airbyte, gthesheep)'
+  status: pending-partner-spec
+  arazzo: null
+- slug: monday-com-aircall-io
+  label: Aircall.io
+  partner: aircall
+  partner_name: Aircall.io
+  category: monday.com app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://monday.com/marketplace/listing/10000899
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: monday.com apps marketplace (public_marketplace_apps + marketplace-developers JSON)
+    spec_file: null
+    role: monday-com-app
+    registered_name: Aircall.io
+    matched_domain: aircall.io
+    matched_by: domain
+    listings: 2
+    sample_apps:
+    - Aircall
+    - 'Aircall: Call & SMS in your work OS'
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-workplace-apps.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-appfire
+  label: Appfire
+  partner: appfire
+  partner_name: Appfire
+  category: monday.com app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://monday.com/marketplace/listing/10000193
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: monday.com apps marketplace (public_marketplace_apps + marketplace-developers JSON)
+    spec_file: null
+    role: monday-com-app
+    registered_name: Appfire
+    matched_domain: appfire.com
+    matched_by: domain
+    listings: 8
+    sample_apps:
+    - 7pace Timetracker for monday.com
+    - BigPicture PPM
+    - Clone Plus - Copy Items
+    - Command Line Interface (CLI) - Automate Actions
+    - Dashboard Hub for monday.com
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-workplace-apps.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-atlassian
+  label: Atlassian
+  partner: atlassian
+  partner_name: Atlassian
+  category: monday.com app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://monday.com/marketplace/listing/10000751
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: monday.com apps marketplace (public_marketplace_apps + marketplace-developers JSON)
+    spec_file: null
+    role: monday-com-app
+    registered_name: Atlassian
+    matched_domain: atlassian.com
+    matched_by: domain+name-among-holders
+    listings: 1
+    sample_apps:
+    - Atlassian Rovo
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-workplace-apps.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-beautiful-ai
+  label: Beautiful.ai
+  partner: beautifulai
+  partner_name: Beautiful.ai
+  category: monday.com app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://monday.com/marketplace/listing/10000014
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: monday.com apps marketplace (public_marketplace_apps + marketplace-developers JSON)
+    spec_file: null
+    role: monday-com-app
+    registered_name: Beautiful.ai
+    matched_domain: beautiful.ai
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - Beautiful.ai
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-workplace-apps.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-canto-inc
+  label: Canto, Inc.
+  partner: canto
+  partner_name: Canto, Inc.
+  category: monday.com app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://monday.com/marketplace/listing/10000150
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: monday.com apps marketplace (public_marketplace_apps + marketplace-developers JSON)
+    spec_file: null
+    role: monday-com-app
+    registered_name: Canto, Inc.
+    matched_domain: canto.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - Canto
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-workplace-apps.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-cloudtalk
+  label: CloudTalk
+  partner: cloudtalk
+  partner_name: CloudTalk
+  category: monday.com app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://monday.com/marketplace/listing/10001142
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: monday.com apps marketplace (public_marketplace_apps + marketplace-developers JSON)
+    spec_file: null
+    role: monday-com-app
+    registered_name: CloudTalk
+    matched_domain: cloudtalk.io
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - CloudTalk
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-workplace-apps.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-sampark-inc
+  label: Sampark Inc
+  partner: composio
+  partner_name: Sampark Inc
+  category: monday.com app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://monday.com/marketplace/listing/10000946
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: monday.com apps marketplace (public_marketplace_apps + marketplace-developers JSON)
+    spec_file: null
+    role: monday-com-app
+    registered_name: Sampark Inc
+    matched_domain: composio.dev
+    matched_by: domain+product
+    listings: 1
+    sample_apps:
+    - Composio
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-workplace-apps.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-crunchbase
+  label: Crunchbase
+  partner: crunchbase-data
+  partner_name: Crunchbase
+  category: monday.com app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://monday.com/marketplace/listing/10000404
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: monday.com apps marketplace (public_marketplace_apps + marketplace-developers JSON)
+    spec_file: null
+    role: monday-com-app
+    registered_name: Crunchbase
+    matched_domain: crunchbase.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - Crunchbase CRM Enrichment
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-workplace-apps.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-docusign-inc
+  label: DocuSign, inc.
+  partner: docusign
+  partner_name: DocuSign, inc.
+  category: monday.com app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://monday.com/marketplace/listing/10000038
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: monday.com apps marketplace (public_marketplace_apps + marketplace-developers JSON)
+    spec_file: null
+    role: monday-com-app
+    registered_name: DocuSign, inc.
+    matched_domain: docusign.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - Docusign
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-workplace-apps.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-freshworks
+  label: Freshworks
+  partner: freshworks
+  partner_name: Freshworks
+  category: monday.com app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://monday.com/marketplace/listing/113
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: monday.com apps marketplace (public_marketplace_apps + marketplace-developers JSON)
+    spec_file: null
+    role: monday-com-app
+    registered_name: Freshworks
+    matched_domain: freshworks.com
+    matched_by: domain+name-among-holders
+    listings: 1
+    sample_apps:
+    - Freshdesk
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-workplace-apps.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-givebutter
+  label: Givebutter
+  partner: givebutter
+  partner_name: Givebutter
+  category: monday.com app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://monday.com/marketplace/listing/10000175
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: monday.com apps marketplace (public_marketplace_apps + marketplace-developers JSON)
+    spec_file: null
+    role: monday-com-app
+    registered_name: Givebutter
+    matched_domain: givebutter.com?&utm_source=monday&utm_medium=partner_referrals&utm_campaign=app_int
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - Givebutter
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-workplace-apps.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-harmony-it-inc
+  label: Harmony IT, Inc.
+  partner: harmony
+  partner_name: Harmony IT, Inc.
+  category: monday.com app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://monday.com/marketplace/listing/10001263
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: monday.com apps marketplace (public_marketplace_apps + marketplace-developers JSON)
+    spec_file: null
+    role: monday-com-app
+    registered_name: Harmony IT, Inc.
+    matched_domain: harmony.io
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - Harmony
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-workplace-apps.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-hootsuite-inc
+  label: Hootsuite Inc.
+  partner: hootsuite
+  partner_name: Hootsuite Inc.
+  category: monday.com app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://monday.com/marketplace/listing/10000008
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: monday.com apps marketplace (public_marketplace_apps + marketplace-developers JSON)
+    spec_file: null
+    role: monday-com-app
+    registered_name: Hootsuite Inc.
+    matched_domain: hootsuite.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - Hootsuite
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-workplace-apps.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-saas-labs
+  label: SaaS Labs
+  partner: justcall
+  partner_name: SaaS Labs
+  category: monday.com app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://monday.com/marketplace/listing/10000177
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: monday.com apps marketplace (public_marketplace_apps + marketplace-developers JSON)
+    spec_file: null
+    role: monday-com-app
+    registered_name: SaaS Labs
+    matched_domain: justcall.io
+    matched_by: domain+product
+    listings: 1
+    sample_apps:
+    - JustCall
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-workplace-apps.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-kpmg-israel
+  label: KPMG - Israel
+  partner: kpmg
+  partner_name: KPMG - Israel
+  category: monday.com app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://monday.com/marketplace/listing/10000068
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: monday.com apps marketplace (public_marketplace_apps + marketplace-developers JSON)
+    spec_file: null
+    role: monday-com-app
+    registered_name: KPMG - Israel
+    matched_domain: kpmg.com
+    matched_by: domain
+    listings: 4
+    sample_apps:
+    - Azure DevOps Integration App
+    - Microsoft Dynamics 365 Integration
+    - NetSuite Integration app
+    - Smart Column
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-workplace-apps.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-lusha-systems-ltd
+  label: Lusha Systems Ltd.
+  partner: lusha
+  partner_name: Lusha Systems Ltd.
+  category: monday.com app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://monday.com/marketplace/listing/10000957
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: monday.com apps marketplace (public_marketplace_apps + marketplace-developers JSON)
+    spec_file: null
+    role: monday-com-app
+    registered_name: Lusha Systems Ltd.
+    matched_domain: lusha.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - Lusha
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-workplace-apps.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-make-com
+  label: make.com
+  partner: make
+  partner_name: make.com
+  category: monday.com app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://monday.com/marketplace/listing/10000733
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: monday.com apps marketplace (public_marketplace_apps + marketplace-developers JSON)
+    spec_file: null
+    role: monday-com-app
+    registered_name: make.com
+    matched_domain: make.com
+    matched_by: domain
+    listings: 2
+    sample_apps:
+    - Make
+    - make.com
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-workplace-apps.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-mediavalet
+  label: MediaValet
+  partner: mediavalet
+  partner_name: MediaValet
+  category: monday.com app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://monday.com/marketplace/listing/10000015
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: monday.com apps marketplace (public_marketplace_apps + marketplace-developers JSON)
+    spec_file: null
+    role: monday-com-app
+    registered_name: MediaValet
+    matched_domain: mediavalet.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - MediaValet
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-workplace-apps.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-miro
+  label: Miro
+  partner: miro
+  partner_name: Miro
+  category: monday.com app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://monday.com/marketplace/listing/23
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: monday.com apps marketplace (public_marketplace_apps + marketplace-developers JSON)
+    spec_file: null
+    role: monday-com-app
+    registered_name: Miro
+    matched_domain: miro.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - Miro
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-workplace-apps.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-pandadoc-inc
+  label: PandaDoc Inc.
+  partner: pandadoc
+  partner_name: PandaDoc Inc.
+  category: monday.com app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://monday.com/marketplace/listing/115
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: monday.com apps marketplace (public_marketplace_apps + marketplace-developers JSON)
+    spec_file: null
+    role: monday-com-app
+    registered_name: PandaDoc Inc.
+    matched_domain: pandadoc.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - 'PandaDoc '
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-workplace-apps.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-rewind-software-inc
+  label: Rewind Software Inc.
+  partner: rewind
+  partner_name: Rewind Software Inc.
+  category: monday.com app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://monday.com/marketplace/listing/10000793
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: monday.com apps marketplace (public_marketplace_apps + marketplace-developers JSON)
+    spec_file: null
+    role: monday-com-app
+    registered_name: Rewind Software Inc.
+    matched_domain: rewind.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - Rewind Backups for monday.com
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-workplace-apps.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-semrush
+  label: Semrush
+  partner: semrush
+  partner_name: Semrush
+  category: monday.com app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://monday.com/marketplace/listing/10000003
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: monday.com apps marketplace (public_marketplace_apps + marketplace-developers JSON)
+    spec_file: null
+    role: monday-com-app
+    registered_name: Semrush
+    matched_domain: semrush.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - Semrush
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-workplace-apps.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-the-giving-block
+  label: The Giving Block
+  partner: the-giving-block
+  partner_name: The Giving Block
+  category: monday.com app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://monday.com/marketplace/listing/10000101
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: monday.com apps marketplace (public_marketplace_apps + marketplace-developers JSON)
+    spec_file: null
+    role: monday-com-app
+    registered_name: The Giving Block
+    matched_domain: thegivingblock.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - The Giving Block
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-workplace-apps.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-unito
+  label: Unito
+  partner: unito
+  partner_name: Unito
+  category: monday.com app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://monday.com/marketplace/listing/11
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: monday.com apps marketplace (public_marketplace_apps + marketplace-developers JSON)
+    spec_file: null
+    role: monday-com-app
+    registered_name: Unito
+    matched_domain: unito.io
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - 2-way syncing with Unito
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-workplace-apps.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-wistia
+  label: Wistia
+  partner: wistia
+  partner_name: Wistia
+  category: monday.com app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://monday.com/marketplace/listing/10000315
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: monday.com apps marketplace (public_marketplace_apps + marketplace-developers JSON)
+    spec_file: null
+    role: monday-com-app
+    registered_name: Wistia
+    matched_domain: wistia.com
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - Wistia
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-workplace-apps.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-zenzap
+  label: Zenzap
+  partner: zenzap
+  partner_name: Zenzap
+  category: monday.com app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://monday.com/marketplace/listing/10000676
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: monday.com apps marketplace (public_marketplace_apps + marketplace-developers JSON)
+    spec_file: null
+    role: monday-com-app
+    registered_name: Zenzap
+    matched_domain: zenzap.co
+    matched_by: domain
+    listings: 1
+    sample_apps:
+    - Zenzap Work Chat App
+    signal_note: one edge per (builder, platform); listings and badges are context, never read
+    detected_by: sweep-workplace-apps.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
