@@ -583,7 +583,7 @@
       type: source
       lapsed: false
       cloud: true
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: monday-com-meltano
   label: Meltano
@@ -615,7 +615,7 @@
     - bronze
     - silver
     builder: 'community (Meltano Hub variant maintainers: airbyte, gthesheep)'
-  status: pending-partner-spec
+  status: not-a-workflow
   arazzo: null
 - slug: monday-com-aircall-io
   label: Aircall.io
