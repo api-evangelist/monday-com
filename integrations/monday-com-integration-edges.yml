@@ -37,6 +37,7 @@ checked:
 - https://officialskills.sh/sitemap.xml
 - https://skillsmp.com/sitemap.xml
 - https://www.skills.sh/sitemap.xml
+- hubspot/integrations/hubspot-integration-edges.yml
 summary: null
 marketplace_apps:
 - marketplace: zapier
@@ -1066,49 +1067,6 @@ edges:
     builder: 'community (Meltano Hub variant maintainers: airbyte, gthesheep)'
   detected_by: sweep-data-integration.py
   first_seen: '2026-10-18'
-- partner_name: n8n (n8n-community)
-  partner: n8n
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: n8n-community
-  evidence: https://www.npmjs.com/package/@mondaycom/n8n-nodes-monday
-  mirror_of: n8n/integrations/n8n-integration-edges.yml
-  apps: []
-  listing_count: 1
-  detected: '2026-10-19'
-  detected_by: mirror-platform-listings.py
-- partner_name: Okta (own)
-  partner: okta
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://www.okta.com/integrations/mondaycom/
-  mirror_of: okta/integrations/okta-integration-edges.yml
-  apps:
-  - monday.com
-  listing_count: 1
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-  category: Single Sign-On
-  badges:
-  - OKTA_VERIFIED
-  features:
-  - CREATE
-  - DEACTIVATE
-  - GROUP_LINKING
-  - GROUP_PUSH
-  - SAML
-  - SYNC_PASSWORD
-  - UPDATE
-  - WORKFLOWS_CONNECTORS
 - partner_name: Zapier
   partner: zapier
   partner_match: aggregator
@@ -1667,6 +1625,67 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-agent-skills.py
   first_seen: '2026-10-20'
+- partner_name: n8n (n8n-community)
+  partner: n8n
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: n8n-community
+  evidence: https://www.npmjs.com/package/@mondaycom/n8n-nodes-monday
+  mirror_of: n8n/integrations/n8n-integration-edges.yml
+  apps: []
+  listing_count: 1
+  detected: '2026-10-19'
+  detected_by: mirror-platform-listings.py
+- partner_name: Okta (own)
+  partner: okta
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.okta.com/integrations/mondaycom/
+  mirror_of: okta/integrations/okta-integration-edges.yml
+  apps:
+  - monday.com
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Single Sign-On
+  badges:
+  - OKTA_VERIFIED
+  features:
+  - CREATE
+  - DEACTIVATE
+  - GROUP_LINKING
+  - GROUP_PUSH
+  - SAML
+  - SYNC_PASSWORD
+  - UPDATE
+  - WORKFLOWS_CONNECTORS
+- partner_name: HubSpot (own)
+  partner: hubspot
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://ecosystem.hubspot.com/marketplace/listing/monday-com-203938
+  mirror_of: hubspot/integrations/hubspot-integration-edges.yml
+  apps:
+  - monday.com
+  - monday MCP
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: PROJECT_MANAGEMENT
 templates:
 - title: Create items on a monday.com board for new rows on Google Sheets
   url: https://zapier.com/apps/google-sheets/integrations/monday/7357/create-items-on-a-mondaycom-board-for-new-rows-on-google-sheets

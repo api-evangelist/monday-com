@@ -961,31 +961,6 @@
     builder: 'community (Meltano Hub variant maintainers: airbyte, gthesheep)'
   status: not-a-workflow
   arazzo: null
-- slug: monday-com-n8n-n8n-community
-  label: n8n (n8n-community)
-  partner: n8n
-  partner_name: n8n (n8n-community)
-  type: marketplace
-  marketplace: n8n-community
-  channel: partner-built
-  evidence: https://www.npmjs.com/package/@mondaycom/n8n-nodes-monday
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: monday-com-okta-own
-  label: Okta (own)
-  partner: okta
-  partner_name: Okta (own)
-  category: Single Sign-On
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://www.okta.com/integrations/mondaycom/
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
 - slug: monday-com-zapier
   label: Zapier
   partner: zapier
@@ -1441,5 +1416,43 @@
     - claude-skills-vibe-breaking-change
     detected_by: sweep-agent-skills.py
     detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-n8n-n8n-community
+  label: n8n (n8n-community)
+  partner: n8n
+  partner_name: n8n (n8n-community)
+  type: marketplace
+  marketplace: n8n-community
+  channel: partner-built
+  evidence: https://www.npmjs.com/package/@mondaycom/n8n-nodes-monday
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-okta-own
+  label: Okta (own)
+  partner: okta
+  partner_name: Okta (own)
+  category: Single Sign-On
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.okta.com/integrations/mondaycom/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: monday-com-hubspot-own
+  label: HubSpot (own)
+  partner: hubspot
+  partner_name: HubSpot (own)
+  category: PROJECT_MANAGEMENT
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://ecosystem.hubspot.com/marketplace/listing/monday-com-203938
+  source: edge
+  relationship: platform-app
   status: not-a-workflow
   arazzo: null
