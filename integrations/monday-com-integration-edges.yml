@@ -38,6 +38,11 @@ checked:
 - https://skillsmp.com/sitemap.xml
 - https://www.skills.sh/sitemap.xml
 - hubspot/integrations/hubspot-integration-edges.yml
+- https://github.com/graphql-kit/graphql-apis
+- https://github.com/graphql/graphql.github.io/tree/source/src/code
+- https://graphql.landscape2.io/data/full.json
+- https://graphql.org/community/tools-and-libraries/
+- https://graphql.org/foundation/members/
 summary: null
 marketplace_apps:
 - marketplace: zapier
@@ -1686,6 +1691,31 @@ edges:
   detected: '2026-10-21'
   detected_by: mirror-platform-listings.py
   category: PROJECT_MANAGEMENT
+- partner_name: graphql-kit public GraphQL APIs
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://github.com/graphql-kit/graphql-apis
+  category: public GraphQL API
+  contract_reference:
+    register: graphql-kit public GraphQL APIs, Official APIs (github.com/graphql-kit/graphql-apis README)
+    standard: GraphQL
+    spec_file: null
+    role: public-graphql-api
+    registered_name: monday.com
+    register_id: https://github.com/graphql-kit/graphql-apis#official-apis
+    matched_domain: monday.com
+    matched_by: domain
+    graphql_endpoints:
+    - https://monday.com/developers/v2/try-it-yourself
+    signal_note: 'participation only: a listed public GraphQL API (endpoint named by the list, not guessed)'
+    detected_by: sweep-graphql-ecosystem.py
+    detected: '2026-10-21'
+  detected_by: sweep-graphql-ecosystem.py
+  first_seen: '2026-10-21'
 templates:
 - title: Create items on a monday.com board for new rows on Google Sheets
   url: https://zapier.com/apps/google-sheets/integrations/monday/7357/create-items-on-a-mondaycom-board-for-new-rows-on-google-sheets
