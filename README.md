@@ -1,4 +1,4 @@
-# Monday.com (monday-com)
+# Monday.com
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,61 +66,155 @@
 
 An expressive API to interact with your workflows, automate processes, power integrations, and more!
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/monday-com/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/monday-com/refs/heads/main/apis.yml)
+**Areas:** Work Management · CRM · Automation · GraphQL · Collaboration · A2A · Project Management
 
-## Scope
+## Monday.com on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Monday.com is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/monday-com/](https://apis.io/providers/monday-com/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (2)
 
-- Work Management
-- CRM
-- Automation
-- GraphQL
+- [Monday.com API](https://apis.io/apis/monday-com/monday-com/) — An expressive GraphQL API to interact with monday.com workflows, boards, items, users, and updates - automate processes, power integrations, and more.
+- [Monday.com Platform GraphQL API](https://apis.io/apis/monday-com/monday-com-monday-com-platform-graphql-api-api/) — The Monday.com Platform GraphQL API API from Monday.com — 1 operation(s) for monday.com platform graphql api.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-02-17
-- **Modified:** 2026-05-29
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### AsyncAPI (1)
 
-### Monday.com API
+Event-driven and webhook contracts.
 
-An expressive GraphQL API to interact with monday.com workflows, boards, items, users, and updates - automate processes, power integrations, and more.
+- [monday.com Webhooks](https://apis.io/asyncapis/monday-com/monday-com-webhooks-asyncapi/)
 
-- **Human URL:** [https://developer.monday.com/api-reference/](https://developer.monday.com/api-reference/)
-- **Base URL:** `https://api.monday.com/v2`
+#### Event channels (1)
 
-#### Tags
+Individual events and webhooks the provider emits.
 
-- Work Management
-- CRM
-- GraphQL
+- [/](https://apis.io/channels/monday-com/untitled/)
 
-#### Properties
+#### GraphQL (1)
 
-- [Documentation](https://developer.monday.com/api-reference/)
-- [Authentication](https://developer.monday.com/api-reference/docs/authentication)
-- [A P I  Playground](https://monday.com/developers/v2/try-it-yourself)
-- [Graph Q L](https://raw.githubusercontent.com/api-evangelist/monday-com/refs/heads/main/graphql/monday-com-graphql.md)
-- [AsyncAPI](https://raw.githubusercontent.com/api-evangelist/monday-com/refs/heads/main/asyncapi/monday-com-webhooks-asyncapi.yml) — [AsyncAPI Specification](https://www.asyncapi.com/docs/reference/specification/latest)
-- [Webhooks](https://developer.monday.com/api-reference/reference/webhooks)
-- [Postman Collection](collections/monday-com.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/monday-com.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+GraphQL schemas.
 
-## Common Properties
+- [Monday.com GraphQL API](https://apis.io/graphqls/monday-com/monday-com-graphql/)
 
-- [GitHub Organization](https://github.com/mondaycom)
-- [LinkedIn](https://www.linkedin.com/company/mondaydotcom)
-- [Features](undefined)
-- [Integrations](https://developer.monday.com/apps)
-- [L L Ms Txt](https://developer.monday.com/llms.txt)
+#### MCP servers (1)
 
-## Maintainers
+Model Context Protocol servers that expose the API to agents.
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+- [monday-com](https://apis.io/servers/monday-com/monday-com/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Monday Com Agentic Access](https://apis.io/agentic-access/monday-com/monday-com-agentic-access/)
+
+#### Collections (2)
+
+Postman and Open Collection request collections.
+
+- [monday.com Platform GraphQL API](https://apis.io/collections/monday-com/open-monday-com/)
+- [monday.com Platform GraphQL Monday.com Platform GraphQL API API](https://apis.io/collections/monday-com/open-monday-com-monday-com-platform-graphql-api-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Monday.com — asyncapi rules](https://apis.io/rules/monday-com/monday-com-asyncapi-spectral-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Monday Com Authentication](https://apis.io/security/monday-com/monday-com-authentication/)
+- [Monday Com Domain Security](https://apis.io/security/monday-com/monday-com-domain-security/)
+- [Monday Com Trust Center](https://apis.io/security/monday-com/monday-com-trust-center/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Monday Com Scopes](https://apis.io/scopes/monday-com/monday-com-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Monday Com Plans Pricing](https://apis.io/plans/monday-com/monday-com-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Monday Com Rate Limits](https://apis.io/rate-limits/monday-com/monday-com-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Monday Com Finops](https://apis.io/finops/monday-com/monday-com-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.monday.com/)
+- [Blog](https://monday.com/blog)
+- [GitHub](https://github.com/mondaycom)
+
+## API Evangelist rating
+
+**Kin Score 31.9** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.7 |
+| Contract quality | 59.6 |
+| Contract governance | 13.6 |
+| Operational transparency | 14.5 |
+| Developer ergonomics | 13.1 |
+| Access clarity | 15.8 |
+
+**Agent readiness 50.3** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | flavored (partial credit) |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 26.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/monday-com/](https://apis.io/providers/monday-com/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Monday.com: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/monday-com/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
